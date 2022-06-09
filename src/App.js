@@ -44,28 +44,26 @@ function App() {
 
   return (
       <div className="App">
-        <div className="container">
-          <div className="left">
-            <div className="top">
-              <select name="modes" onChange={(e) => handleCount(e)}>
-                {data.map((el, i) => (
-                    <option value={el.field} key={i}>{el.name}</option>
-                ))}
-              </select>
-              <button type="button" onClick={() => setStart(true)}>start</button>
-            </div>
-            <Grid count={count}>
-              {fieldsArea.map((_, i) => (
-                  <div onMouseEnter={() => handleToggleSquare(i)}
-                       className={squares.includes(i) && isStart ? "square active" : "square"}
-                       key={i}>
-                  </div>
+        <div className="left">
+          <div className="top">
+            <select name="modes" onChange={(e) => handleCount(e)}>
+              {data.map((el, i) => (
+                  <option value={el.field} key={i}>{el.name}</option>
               ))}
-            </Grid>
+            </select>
+            <button type="button" onClick={() => setStart(true)}>start</button>
           </div>
-          <div className="right">
-            <HoverSquares squares={squares} getRow={getRow} getColumn={getColumn}/>
-          </div>
+          <Grid count={count}>
+            {fieldsArea.map((_, i) => (
+                <div onMouseEnter={() => handleToggleSquare(i)}
+                     className={squares.includes(i) && isStart ? "square active" : "square"}
+                     key={i}>
+                </div>
+            ))}
+          </Grid>
+        </div>
+        <div className="right">
+          <HoverSquares squares={squares} getRow={getRow} getColumn={getColumn}/>
         </div>
       </div>
   );

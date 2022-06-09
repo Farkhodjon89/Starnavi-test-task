@@ -20,10 +20,6 @@ code {
     padding: 30px;
 }
 
-.container {
-    display: flex;
-}
-
 .square {
     border: 1px solid black;
     height: 30px;
